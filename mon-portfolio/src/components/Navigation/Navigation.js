@@ -15,6 +15,9 @@ function Navigation() {
         <li>
           <NavLink to="/projects" activeClassName="active">Projets</NavLink>
         </li>
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
       </ul>
     </nav>
   );

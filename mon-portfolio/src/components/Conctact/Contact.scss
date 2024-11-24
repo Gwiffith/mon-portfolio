@@ -1,0 +1,32 @@
+@import '../../styles/_variables.scss';
+
+.contact-section {
+    padding: 2rem;
+    background-color: $contact-bg;
+    color: $contact-text;
+    text-align: center;
+  
+    h2 {
+      color: $primary-color;
+      margin-bottom: 1rem;
+    }
+  
+    ul {
+      list-style: none;
+      padding: 0;
+  
+      li {
+        margin: 0.5rem 0;
+  
+        a {
+          text-decoration: none;
+          color: $primary-color;
+  
+          &:hover {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+  
