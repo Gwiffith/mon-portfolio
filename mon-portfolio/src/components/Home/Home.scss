@@ -1,0 +1,41 @@
+@import '../../styles/_variables.scss';
+
+.home-section {
+  padding: 5rem 2rem;
+  background-color: $background-color;
+  color: $text-color;
+  text-align: center;
+
+  h1 {
+    font-size: 3rem;
+    color: $primary-color;
+    margin-bottom: 1rem;
+    font-weight: bold;
+
+    span {
+      color: $secondary-color;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: $primary-hover;
+  }
+
+  .cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: $primary-color;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+}

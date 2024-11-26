@@ -1,0 +1,44 @@
+@import '../../styles/_variables.scss';
+
+.about-section {
+    padding: 4rem 2rem;
+    background-color: $background-color;
+    color: $text-color;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  
+    .about-title {
+      margin-bottom: 2rem;
+  
+      h2 {
+        color: $primary-color;
+        font-size: 2.5rem;
+        text-transform: uppercase;
+      }
+    }
+  
+    .about-content {
+      h3 {
+        font-size: 1.8rem;
+        color: $secondary-color;
+        margin-bottom: 0.5rem;
+      }
+  
+      p:first-of-type {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+  
+      .about-text {
+        margin-top: 1.5rem;
+        p {
+          font-size: 1.1rem;
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
