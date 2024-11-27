@@ -1,17 +1,16 @@
 import React from 'react';
+import ProjectGrid from './ProjectGrid/ProjectGrid';
 import './Projects.scss';
+import projectData from '../../Projects.json';
 
 function Projects() {
   return (
     <section id="projects" className="projects-section">
-      <h2>Mes projets</h2>
-      <ul>
-        <li>Projet 1 : Description du projet</li>
-        <li>Projet 2 : Description du projet</li>
-        <li>Projet 3 : Description du projet</li>
-      </ul>
+      <h2>Mes Projets</h2>
+      <ProjectGrid projects={projectData} />
     </section>
   );
 }
 
 export default Projects;
+

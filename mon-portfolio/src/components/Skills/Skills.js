@@ -1,16 +1,20 @@
 import React from "react"; 
-import './Skills.scss'
+import SkillCard from './SkillCard/SkillCard';
+import { FaHtml5, FaJs, FaReact, FaNode } from 'react-icons/fa';
+import { MdCss, MdHtml } from "react-icons/md";
+import './Skills.scss';
 
 function Skills() {
     return (
         <section id="skills" className="skills-section">
             <h2>Mes compétences</h2>
-                <ul>
-                    <li>HTML & CSS</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                    <li>NodeJS</li>
-                </ul>
+            <div className="skills-list">
+                <SkillCard name="HTML" icon={<MdHtml />} level={3} />
+                <SkillCard name="CSS" icon={<MdCss />} level={3} />
+                <SkillCard name="JavaScript" icon={<FaJs />} level={2} />
+                <SkillCard name="React" icon={<FaReact />} level={2} />
+                <SkillCard name="NodeJS" icon={<FaNode />} level={1} />
+            </div>
         </section>
     );
 }
