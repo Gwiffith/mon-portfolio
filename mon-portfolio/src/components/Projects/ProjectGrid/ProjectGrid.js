@@ -12,6 +12,7 @@ function ProjectGrid({ projects }) {
           description={project.description}
           image={project.image}
           link={project.link}
+          logo={project.logo}
         />
       ))}
     </div>

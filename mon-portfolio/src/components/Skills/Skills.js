@@ -1,6 +1,6 @@
 import React from "react"; 
 import SkillCard from './SkillCard/SkillCard';
-import { FaHtml5, FaJs, FaReact, FaNode } from 'react-icons/fa';
+import { FaJs, FaReact, FaNode } from 'react-icons/fa';
 import { MdCss, MdHtml } from "react-icons/md";
 import './Skills.scss';
 

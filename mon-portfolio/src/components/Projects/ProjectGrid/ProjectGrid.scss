@@ -1,9 +1,12 @@
 @import '../../../styles/_variables.scss';
 
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;                  /* Utilisation de Flexbox */
+  flex-wrap: wrap;                /* Permet de retourner à la ligne quand les cartes dépassent la largeur */
+  gap: 2rem;                      /* Espacement entre les cartes */
+  max-width: 1200px;              /* Largeur maximale de la grille */
+  margin: 0 auto;                 /* Centre la grille */
+  justify-content: space-between; /* Répartit les cartes de manière uniforme */
+  align-items: flex-start;        /* Aligne les cartes par le haut, indépendamment des autres */
 }
+

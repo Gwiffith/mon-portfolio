@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Collapse from '../Collapse/Collapse';
 import './ProjectCard.scss';
 
-function ProjectCard({ title, description, image, link }) {
+function ProjectCard({ title, description, image, link, logo }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleCollapse = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <div className="project-card">
       <img src={image} alt={title} className="project-image" />
       <div className="project-content">
-        <h3>{title}</h3>
-        <p>{description}</p>
+        <img src={logo} alt={`${title} logo`} className="project-logo" />
+        
+        {/* Collapse Component */}
+        <Collapse
+          title="Description"
+          isOpen={isOpen}
+          toggleCollapse={toggleCollapse}
+        >
+          <p>{description}</p>
+        </Collapse>
+
+        {/* Link to the Project */}
         <a href={link} target="_blank" rel="noopener noreferrer" className="project-link">
           Voir le projet
         </a>
@@ -17,3 +34,4 @@ function ProjectCard({ title, description, image, link }) {
 }
 
 export default ProjectCard;
+

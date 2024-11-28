@@ -1,9 +1,11 @@
 @import '../../../styles/_variables.scss';
 
 .project-card {
-  background-color: #fff;
+  background-color: $card-bg;
   padding: 1rem;
   border-radius: 10px;
+  max-width: 400px;  /* Fixe la largeur maximale à 300px */
+  width: calc(100% - 2rem); /* Permet à chaque carte de s'adapter tout en gardant une largeur maximale */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -14,22 +16,29 @@
 
   .project-image {
     width: 100%;
-    height: auto;
+    height: 200px; 
+    object-fit: cover;
+    object-position: top;
     border-radius: 8px;
     margin-bottom: 1rem;
   }
 
   .project-content {
-    h3 {
-      color: $primary-color;
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .project-logo {
+      width: 100px;
+      height: 33px;
+      margin-bottom: 1rem;
     }
 
     p {
       font-size: 1rem;
       color: $secondary-color;
       margin-bottom: 1rem;
+      text-align: center;
     }
 
     .project-link {
