@@ -1,41 +1,55 @@
 @import '../../styles/_variables.scss';
 
 .home-section {
+  position: relative; /* Permet de positionner les éléments enfants avec z-index */
   padding: 5rem 2rem;
+  overflow: hidden; /* Empêche le dépassement des particules */
   background-color: $background-color;
-  color: $text-color;
-  text-align: center;
 
-  h1 {
-    font-size: 3rem;
-    color: $primary-color;
-    margin-bottom: 1rem;
-    font-weight: bold;
+  #tsparticles {
+    position: absolute; /* Positionne les particules dans toute la section */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Place les particules derrière le contenu */
+    height: 100%;
+  }
 
-    span {
-      color: $secondary-color;
+  .home-content {
+    position: relative; /* Permet de superposer le contenu sur les particules */
+    z-index: 1; /* Assure que le contenu est au-dessus des particules */
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+      color: $primary-color;
+      margin-bottom: 1rem;
+      font-weight: bold;
     }
-  }
 
-  p {
-    font-size: 1.5rem;
-    color: $primary-hover;
-  }
+    p {
+      font-size: 1.5rem;
+      color: $primary-hover;
+    }
 
-  .cta-button {
-    display: inline-block;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    color: #fff;
-    background-color: $primary-color;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
+    .cta-button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      color: #fff;
+      background-color: $primary-color;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease, transform 0.3s ease;
 
-    &:hover {
-      background-color: $primary-hover;
+      &:hover {
+        background-color: $primary-hover;
+        transform: scale(1.1);
+      }
     }
   }
 }
