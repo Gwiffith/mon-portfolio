@@ -1,65 +1,64 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import './Navigation.scss';
 
 function Navigation() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
-      const navLinks = document.querySelectorAll("nav ul li a");
-
-      let currentSection = "";
-
-      sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (window.scrollY >= sectionTop - 60) {
-          currentSection = section.getAttribute("id");
-        }
-      });
-
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-        if (link.getAttribute("href") === `#${currentSection}`) {
-          link.classList.add("active");
-        }
-      });
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.6,
     };
 
-    // Forcer la classe active lors du premier chargement
-    const setInitialActiveLink = () => {
-      const navLinks = document.querySelectorAll("nav ul li a");
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const navLinks = document.querySelectorAll("nav ul li a");
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+            if (link.getAttribute("href") === `#${entry.target.id}`) {
+              link.classList.add("active");
+            }
+          });
+        }
       });
-      const homeLink = document.querySelector("nav ul li a[href='#home']");
-      if (homeLink) {
-        homeLink.classList.add("active");
-      }
-    };
+    }, options);
 
-    setInitialActiveLink(); // Appelle la fonction pour forcer l'état actif au chargement
+    const sections = document.querySelectorAll("section");
+    sections.forEach((section) => {
+      observer.observe(section);
+    });
 
-    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      sections.forEach((section) => observer.unobserve(section));
     };
   }, []);
 
   return (
-    <nav>
-      <ul>
-        <li>
+    <nav className={isMenuOpen ? 'open' : ''}>
+      <div className="hamburger" onClick={toggleMenu}>
+        {isMenuOpen ? <FaTimes /> : <FaBars />}
+      </div>
+      <ul className={isMenuOpen ? 'nav-links open' : 'nav-links'}>
+        <li onClick={toggleMenu}>
           <a href="#home">Accueil</a>
         </li>
-        <li>
+        <li onClick={toggleMenu}>
           <a href="#about">À propos</a>
         </li>
-        <li>
+        <li onClick={toggleMenu}>
           <a href="#skills">Mes compétences</a>
         </li>
-        <li>
+        <li onClick={toggleMenu}>
           <a href="#projects">Projets</a>
         </li>
-        <li>
+        <li onClick={toggleMenu}>
           <a href="#contact">Contact</a>
         </li>
       </ul>

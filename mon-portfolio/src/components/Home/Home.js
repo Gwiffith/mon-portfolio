@@ -23,9 +23,7 @@ function Home() {
           init={particlesInit}
           loaded={particlesLoaded}
           options={{
-            
-            fullScreen: { 
-              enable: false },
+            fullScreen: { enable: false },
             fpsLimit: 120,
             interactivity: {
               events: {
@@ -92,16 +90,21 @@ function Home() {
 
       {/* Contenu de la bannière */}
       <div className="home-content">
-        <h1>
-          <ReactTyped
-            strings={['Bertrand Gatinier', 'Développeur Frontend']}
-            typeSpeed={40}
-            backSpeed={50}
-            loop
-          />
-        </h1>
-        <p>Portfolio</p>
-        <a href="#about" className="cta-button">En savoir plus</a>
+        {/* Wrapper pour le titre */}
+        <div className="h1-wrapper">
+          <h1>
+            <ReactTyped
+              strings={['Bertrand Gatinier', 'Développeur Frontend']}
+              typeSpeed={40}
+              backSpeed={50}
+              loop
+            />
+          </h1>
+        </div>
+        <div className="home-description">
+          <p>Portfolio</p>
+          <a href="#about" className="cta-button">En savoir plus</a>
+        </div>
       </div>
     </section>
   );

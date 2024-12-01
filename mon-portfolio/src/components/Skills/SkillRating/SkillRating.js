@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaStar, FaRegStar } from 'react-icons/fa';
-import './SkillRating.scss';
 
 function SkillRating({ level }) {
   return (

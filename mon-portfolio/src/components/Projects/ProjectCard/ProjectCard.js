@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Collapse from '../Collapse/Collapse';
 import './ProjectCard.scss';
 
-function ProjectCard({ title, description, image, link, logo }) {
+function ProjectCard({ title, description, image, link, github, logo }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleCollapse = () => {
@@ -27,6 +27,10 @@ function ProjectCard({ title, description, image, link, logo }) {
         {/* Link to the Project */}
         <a href={link} target="_blank" rel="noopener noreferrer" className="project-link">
           Voir le projet
+        </a>
+        {/* Link to the Repository */}
+        <a href={github} target="_blank" rel="noopener noreferrer" className="project-repo">
+          Voir le repository
         </a>
       </div>
     </div>

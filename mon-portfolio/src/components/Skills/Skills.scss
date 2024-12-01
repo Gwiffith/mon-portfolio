@@ -13,12 +13,24 @@
     margin-bottom: 3rem;
     font-weight: bold;
     letter-spacing: 2px;
+    @media (max-width: 768px) {
+      font-size: 2rem; /* Ajuste la taille du titre sur mobile */
+    }
   }
+  
 
   .skills-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr); /* Deux colonnes sur tablette */
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr; /* Une colonne sur mobile */
+    }
   }
 }
